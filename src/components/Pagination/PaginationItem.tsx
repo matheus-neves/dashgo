@@ -7,7 +7,7 @@ interface PaginationItemProps {
 
 export function PaginationItem({ isCurrent = false, number }: PaginationItemProps) {
   {
-    isCurrent && (
+    return isCurrent ? (
       <Button
         size="sm"
         fontSize="xs"
@@ -19,18 +19,16 @@ export function PaginationItem({ isCurrent = false, number }: PaginationItemProp
           cursor: "default"
         }}
       >{number}</Button>
+    ) : (
+      <Button
+        size="sm"
+        fontSize="xs"
+        width="4"
+        bg="gray.700"
+        _hover={{
+          bg: 'pink.500'
+        }}
+      >{number}</Button>
     )
   }
-
-  return (
-    <Button
-      size="sm"
-      fontSize="xs"
-      width="4"
-      bg="gray.700"
-      _hover={{
-        bg: 'pink.500'
-      }}
-    >{number}</Button>
-  )
 }
